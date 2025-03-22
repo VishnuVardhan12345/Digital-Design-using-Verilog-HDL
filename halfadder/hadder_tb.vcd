@@ -1,0 +1,49 @@
+$date
+	Sun Feb 16 12:46:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module hadder_tb $end
+$var wire 1 ! sum $end
+$var wire 1 " carry $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var integer 32 % i [31:0] $end
+$scope module uut $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 " carry $end
+$var wire 1 ! sum $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+0$
+0#
+0"
+0!
+$end
+#5
+1!
+1$
+b1 %
+#10
+1#
+0$
+b10 %
+#15
+0!
+1"
+1$
+b11 %
+#20
+b100 %
