@@ -1,0 +1,76 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002636f8bae20 .scope module, "BtoG_tb" "BtoG_tb" 2 4;
+ .timescale -9 -9;
+v000002636f9d3a50_0 .var "B0", 0 0;
+v000002636f9d3af0_0 .var "B1", 0 0;
+v000002636f9d3b90_0 .var "B2", 0 0;
+v000002636f9d3c30_0 .var "B3", 0 0;
+v000002636f9d3cd0_0 .net "G0", 0 0, L_000002636f9a2b90;  1 drivers
+v000002636f9d3d70_0 .net "G1", 0 0, L_000002636f9a2dd0;  1 drivers
+v000002636f9d45e0_0 .net "G2", 0 0, L_000002636f9a2fd0;  1 drivers
+v000002636f9d4540_0 .net "G3", 0 0, L_000002636f9d6ed0;  1 drivers
+v000002636f9d4d60_0 .var/i "i", 31 0;
+S_000002636f9d6ac0 .scope module, "uut" "BtoG" 2 10, 3 1 0, S_000002636f8bae20;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "B3";
+    .port_info 1 /INPUT 1 "B2";
+    .port_info 2 /INPUT 1 "B1";
+    .port_info 3 /INPUT 1 "B0";
+    .port_info 4 /OUTPUT 1 "G3";
+    .port_info 5 /OUTPUT 1 "G2";
+    .port_info 6 /OUTPUT 1 "G1";
+    .port_info 7 /OUTPUT 1 "G0";
+L_000002636f9d6ed0 .functor BUFZ 1, v000002636f9d3c30_0, C4<0>, C4<0>, C4<0>;
+L_000002636f9a2fd0 .functor XOR 1, v000002636f9d3c30_0, v000002636f9d3b90_0, C4<0>, C4<0>;
+L_000002636f9a2dd0 .functor XOR 1, v000002636f9d3b90_0, v000002636f9d3af0_0, C4<0>, C4<0>;
+L_000002636f9a2b90 .functor XOR 1, v000002636f9d3af0_0, v000002636f9d3a50_0, C4<0>, C4<0>;
+v000002636f9d6c50_0 .net "B0", 0 0, v000002636f9d3a50_0;  1 drivers
+v000002636f9a2930_0 .net "B1", 0 0, v000002636f9d3af0_0;  1 drivers
+v000002636f9d6cf0_0 .net "B2", 0 0, v000002636f9d3b90_0;  1 drivers
+v000002636f9d6d90_0 .net "B3", 0 0, v000002636f9d3c30_0;  1 drivers
+v000002636f9d6e30_0 .net "G0", 0 0, L_000002636f9a2b90;  alias, 1 drivers
+v000002636f9d3870_0 .net "G1", 0 0, L_000002636f9a2dd0;  alias, 1 drivers
+v000002636f9d3910_0 .net "G2", 0 0, L_000002636f9a2fd0;  alias, 1 drivers
+v000002636f9d39b0_0 .net "G3", 0 0, L_000002636f9d6ed0;  alias, 1 drivers
+    .scope S_000002636f8bae20;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "BtoG_tb.vcd" {0 0 0};
+    %vpi_call 2 15 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002636f8bae20 {0 0 0};
+    %vpi_call 2 17 "$monitor", "binary code=%d%d%d%d ,gray code=%d%d%d%d", v000002636f9d3c30_0, v000002636f9d3b90_0, v000002636f9d3af0_0, v000002636f9d3a50_0, v000002636f9d4540_0, v000002636f9d45e0_0, v000002636f9d3d70_0, v000002636f9d3cd0_0 {0 0 0};
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002636f9d4d60_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000002636f9d4d60_0;
+    %cmpi/s 16, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v000002636f9d4d60_0;
+    %pad/s 4;
+    %split/vec4 1;
+    %store/vec4 v000002636f9d3a50_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v000002636f9d3af0_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v000002636f9d3b90_0, 0, 1;
+    %store/vec4 v000002636f9d3c30_0, 0, 1;
+    %delay 5, 0;
+    %load/vec4 v000002636f9d4d60_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002636f9d4d60_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "BtoG_tb.v";
+    "./BtoG.v";
